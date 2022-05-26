@@ -1,18 +1,18 @@
 <?php 
 
-    class Food extends Product{
+    class Antiseptics extends Product{
+        /* set aviability for stagional Antiseptics */
+        public $aviability = false;
+        public $is_natural;
+        public $dosage;
 
-        protected $weight;
-        protected $meat;
-
-        function __construct(String $name, String $animal, String $brand, String $descr, Float $price, Bool $has_discount, String $weight, Mixed $meat) {
+        function __construct(String $name, String $animal, String $brand, String $descr, Float $price, Bool $has_discount, Bool $aviability, Bool $is_natural, String $dosage) {
             parent::__construct( $name,  $animal,  $brand,  $descr,  $price,  $has_discount);
 
-            $this->weight = $weight;
-            $this->meat = $meat;
+            $this->is_natural = $is_natural;
+            $this->dosage = $dosage;
+            $this->aviability = $aviability;
 
-
-            
         }
 
         private function getName()
@@ -45,14 +45,19 @@
             return $this->discount;
         }
 
-        private function getWeight()
+        private function getAviability()
         {
-            return $this->weight;
+            return $this->aviability;
         }
 
-        private function getMeat()
+        private function getIsNatural()
         {
-            return $this->meat;
+            return $this->is_natural;
+        }
+
+        private function getDosage()
+        {
+            return $this->dosage;
         }
 
         public function getFullInfoProduct()
@@ -64,8 +69,9 @@
         $price = $this->price  . "€";
         $has_discount = $this->getHasDiscount();
         $discount = $this->getDiscount();
-        $meat = $this->getMeat();
-        $weight = $this->getWeight();
+        $aviability = $this->getAviability();
+        $is_natural = $this->getIsNatural();
+        $dosage = $this->getDosage();
         return [
             $name,
             $animal,
@@ -74,12 +80,12 @@
             $price, 
             $has_discount,
             $discount, 
-            $meat,
-            $weight,
+            $aviability,
+            $is_natural,
+            $dosage,
 
         ];
     }
-
 
 
     }

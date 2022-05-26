@@ -9,80 +9,27 @@ class Product{
     protected $price;
     protected $has_discount = false;
     protected $discount = 20;
+    protected $is_card_active = false;
+
+    /* set 20% discount if has_discount is true */
+
+    private function setPrice($has_discount,$price)
+    {
+        if($has_discount){
+            return $price - ($price * $this->discount / 100);
+        } else {
+            return $price;
+        }
+     
+    }
 
     function __construct(String $name, String $animal, String $brand, String $descr, Float $price, Bool $has_discount ) {
         $this->name = $name;
         $this->animal = $animal;
         $this->brand = $brand;
         $this->descr = $descr;
-        $this->price = $price;
+        $this->price = $this->setPrice($has_discount,$price) . "€";
         $this->has_discount = $has_discount;
-    }
-
-    private function setPrice()
-    {
-        if($this->has_discount){
-            return $this->price - ($this->price * $this->discount / 100);
-        } else {
-            return $this->price;
-        }
-     
-    }
-    
-    private function getName()
-    {
-        return $this->name;
-    }
-
-    private function getAnimal()
-    {
-        return $this->animal;
-    }
-
-    private function getBrand()
-    {
-        return $this->brand;
-    }
-
-    private function getDescr()
-    {
-        return $this->descr;
-    }
-
-    private function getPrice()
-    {
-        return $this->setPrice();
-    }
-
-    private function getHasDiscount()
-    {
-        return $this->has_discount;
-    }
-
-    private function getDiscount()
-    {
-        return $this->discount;
-    }
-
-    public function getFullInfoProduct()
-    {
-        $name = $this->getName();
-        $animal = $this->getAnimal();
-        $brand = $this->getBrand();
-        $descr = $this->getDescr();
-        $price = $this->getPrice()  . "€";
-        $has_discount = $this->getHasDiscount();
-        $discount = $this->getDiscount();
-        return [
-            $name,
-            $animal,
-            $brand,
-            $descr,
-            $price,
-            $has_discount,
-            $discount
-
-        ];
     }
 
 }
