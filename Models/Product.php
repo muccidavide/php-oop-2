@@ -7,9 +7,8 @@ class Product{
     protected $brand;
     protected $descr;
     protected $price;
-    protected $has_discount = false;
+    protected $has_discount;
     protected $discount = 20;
-    protected $is_card_active = false;
 
     /* set 20% discount if has_discount is true */
 
@@ -23,7 +22,7 @@ class Product{
      
     }
 
-    function __construct(String $name, String $animal, String $brand, String $descr, Float $price, Bool $has_discount ) {
+    function __construct(String $name, String $animal, String $brand, String $descr, Float $price,Bool $has_discount ) {
         $this->name = $name;
         $this->animal = $animal;
         $this->brand = $brand;

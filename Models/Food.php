@@ -67,15 +67,15 @@
         $meat = $this->getMeat();
         $weight = $this->getWeight();
         return [
-            $name,
-            $animal,
-            $brand,
-            $descr,
-            $price, 
-            $has_discount,
-            $discount, 
-            $meat,
-            $weight,
+            "name"=>$name,
+            "animal"=>$animal,
+            "brand"=>$brand,
+            "description"=>$descr,
+            "price"=>$price, 
+            "has_discount"=>$has_discount,
+            "discount_amount"=>$discount, 
+            "meat"=>$meat,
+            "weight"=>$weight
 
         ];
     }

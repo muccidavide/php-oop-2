@@ -6,7 +6,7 @@
         public $is_natural;
         public $dosage;
 
-        function __construct(String $name, String $animal, String $brand, String $descr, Float $price, Bool $has_discount, Bool $aviability, Bool $is_natural, String $dosage) {
+        function __construct(String $name, String $animal, String $brand, String $descr, Float $price, $has_discount, Bool $aviability, Bool $is_natural, String $dosage) {
             parent::__construct( $name,  $animal,  $brand,  $descr,  $price,  $has_discount);
 
             $this->is_natural = $is_natural;
@@ -73,16 +73,16 @@
         $is_natural = $this->getIsNatural();
         $dosage = $this->getDosage();
         return [
-            $name,
-            $animal,
-            $brand,
-            $descr,
-            $price, 
-            $has_discount,
-            $discount, 
-            $aviability,
-            $is_natural,
-            $dosage,
+            "name"=>$name,
+            "animal"=>$animal,
+            "brand"=>$brand,
+            "description"=>$descr,
+            "price"=>$price, 
+            "has_discount"=>$has_discount,
+            "discount_amount"=>$discount, 
+            "aviability"=>$aviability,
+            "is_natural"=>$is_natural,
+            "name"=>$dosage,
 
         ];
     }
