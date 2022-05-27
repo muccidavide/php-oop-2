@@ -6,8 +6,10 @@ Product Sub-Class: Food(weight,meat). Antiseptics(aviability,is_natural,dosage)
 */
 include __DIR__ . "/Models/User.php";
 include __DIR__ . "/Models/Product.php";
+include __DIR__ . "/Models/Traits.php";
 include __DIR__ . "/Models/Food.php";
 include __DIR__ . "/Models/Antiseptics.php";
+
 
 /* Users */
 $user_discount = false;

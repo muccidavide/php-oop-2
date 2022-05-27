@@ -1,10 +1,14 @@
 <?php 
 
     class Antiseptics extends Product{
+
+        use AnimalAge;
+
         /* set aviability for stagional Antiseptics */
         public $aviability = false;
         public $is_natural;
         public $dosage;
+        
 
         function __construct(String $name, String $animal, String $brand, String $descr, Float $price, $has_discount, Bool $aviability, Bool $is_natural, String $dosage) {
             parent::__construct( $name,  $animal,  $brand,  $descr,  $price,  $has_discount);
@@ -72,6 +76,7 @@
         $aviability = $this->getAviability();
         $is_natural = $this->getIsNatural();
         $dosage = $this->getDosage();
+        $animalAge = $this->getAnimalAge();
         return [
             "name"=>$name,
             "animal"=>$animal,
@@ -83,6 +88,7 @@
             "aviability"=>$aviability,
             "is_natural"=>$is_natural,
             "dosage"=>$dosage,
+            "animalAge" => $animalAge
 
         ];
     }
