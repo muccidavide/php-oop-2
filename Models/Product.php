@@ -27,7 +27,7 @@ class Product{
         $this->animal = $animal;
         $this->brand = $brand;
         $this->descr = $descr;
-        $this->price = $this->setPrice($has_discount,$price) . "€";
+        $this->price = $this->setPrice($has_discount,$price);
         $this->has_discount = $has_discount;
     }
 

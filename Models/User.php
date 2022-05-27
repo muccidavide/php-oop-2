@@ -14,14 +14,4 @@
     
     }
 
-    $user_gino = new User("Gino","gino@email.com", true, true);
-    $user_paolo = new User("Paolo","gino@email.com", false, false);
-
-
-    
-
-
-
-
-
 ?>

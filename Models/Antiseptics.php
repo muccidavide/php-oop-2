@@ -82,7 +82,7 @@
             "discount_amount"=>$discount, 
             "aviability"=>$aviability,
             "is_natural"=>$is_natural,
-            "name"=>$dosage,
+            "dosage"=>$dosage,
 
         ];
     }
