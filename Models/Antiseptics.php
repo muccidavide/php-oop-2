@@ -10,12 +10,13 @@
         public $dosage;
         
 
-        function __construct(String $name, String $animal, String $brand, String $descr, Float $price, $has_discount, Bool $aviability, Bool $is_natural, String $dosage) {
+        function __construct(String $name, String $animal, String $brand, String $descr, /* Float */ $price, $has_discount, Bool $aviability, Bool $is_natural, String $dosage, $animalAge) {
             parent::__construct( $name,  $animal,  $brand,  $descr,  $price,  $has_discount);
 
             $this->is_natural = $is_natural;
             $this->dosage = $dosage;
             $this->aviability = $aviability;
+            $this->animalAge = $animalAge;
 
         }
 

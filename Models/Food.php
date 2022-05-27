@@ -8,12 +8,13 @@
         protected $meat;
       
 
-        function __construct(String $name, String $animal, String $brand, String $descr, Float $price, Bool $has_discount, String $weight, Mixed $meat) {
+        function __construct(String $name, String $animal, String $brand, String $descr, /* Float */ $price, Bool $has_discount, String $weight, Mixed $meat, $animalAge) {
             parent::__construct( $name,  $animal,  $brand,  $descr,  $price,  $has_discount);
 
             $this->weight = $weight;
             $this->meat = $meat;
-            
+            $this->animalAge = $animalAge;
+
         }
 
         private function getName()

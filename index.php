@@ -23,12 +23,17 @@ $user = new User("Gino", "gino@email.com", $user_discount, $user_discount); // s
 
 /* Prodotti Sottoclassi */
 
-$felix_ghiottonerie = new Food("Felix Le Ghiottonerie Multipack", "Cat", "Felix", "Felix Le Ghiottonerie è un alimento completo, ideale per soddisfare le esigenze nutrizionali ", 6.90, $user_discount, "80gr", "Manzo");
-$combo_gatto = new Antiseptics("Frontline Combo Spot", "Cat", "FRONTLINE", "Frontline Combo Spot On 6 pipette, antiparassitario per gatti in pipette che protegge il tuo micio da pulci, zecche e zanzare.", 33.90, $user_discount, true, true, "2 volte al mese");
+$felix_ghiottonerie = new Food("Felix Le Ghiottonerie Multipack", "Cat", "Felix", "Felix Le Ghiottonerie è un alimento completo, ideale per soddisfare le esigenze nutrizionali ", 33, $user_discount, "80gr", "Manzo", "cucciolo");
+$combo_gatto = new Antiseptics("Frontline Combo Spot", "Cat", "FRONTLINE", "Frontline Combo Spot On 6 pipette, antiparassitario per gatti in pipette che protegge il tuo micio da pulci, zecche e zanzare.", 33.90, $user_discount, true, true, "2 volte al mese", "adulto");
 //$combo_gatto_gino = new Antiseptics("Frontline Combo Spot", "Cat", "FRONTLINE", "Frontline Combo Spot On 6 pipette, antiparassitario per gatti in pipette che protegge il tuo micio da pulci, zecche e zanzare.", 33.90,$user_gino->has_discount, true, true, "2 volte al mese");
 
 $products = [$felix_ghiottonerie->getFullInfoProduct(), $combo_gatto->getFullInfoProduct()];
 
+try {
+    $combo_gatto->setPrice(true, "ciao");
+  } catch (Exception $e) {
+    echo $e->getMessage();
+  }
 
 ?>
 
