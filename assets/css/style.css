@@ -1,0 +1,63 @@
+:root {
+    --bp-bg-primary: #fafaff;
+    --bp-bg-secondary: #75a481;
+    --bp-bg-alert: #efabbc;
+    --bp-bg-banner:#f0cf7c;
+    --bp-bg-footer-primary: #1a231f;
+    --bp-bg-footer-secondary:#353636;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+img {
+    max-width: 100%
+}
+
+/* Header */
+header h1,
+header h5,
+header h6{
+    margin-bottom: 0;
+}
+
+header .spedition_banner{
+    background-color: var(--bp-bg-alert);
+}
+
+header .trustpilot_banner{
+    background-color: var(--bp-bg-banner);
+}
+
+header .logo_img{
+    width: 2rem;
+    margin-right: 0.5rem;
+}
+
+header .logo_img img{
+    transform: translateY(-5px);
+}
+
+header .nav-site{
+    color: var(--bp-bg-secondary);
+    background-color: var(--bp-bg-primary);
+}
+
+header .nav-site a{
+    color: var(--bp-bg-secondary);
+    text-transform: uppercase;
+
+}
+
+header .general_info{
+    color: #fafaff;
+    background-color: var(--bp-bg-secondary);
+}

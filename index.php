@@ -7,13 +7,12 @@ Product Sub-Class: Food(weight,meat). Antiseptics(aviability,is_natural,dosage)
 include __DIR__ . "/Models/User.php";
 include __DIR__ . "/Models/Product.php";
 include __DIR__ . "/Models/Traits.php";
-include __DIR__ . "/Models/Food.php";
 include __DIR__ . "/Models/Antiseptics.php";
-
+include __DIR__ . "/Models/Food.php";
 
 /* Users */
 $user_discount = false;
-$user_discount = filter_var($_GET['login'], FILTER_VALIDATE_BOOLEAN) ;
+$user_discount = filter_var($_GET['login'], FILTER_VALIDATE_BOOLEAN);
 
 $user = new User("Gino", "gino@email.com", $user_discount, $user_discount); // sconto applicato, carta attiva
 //$user = new User("Paolo","gino@email.com", false, false); // sconto non applicato & carta non abilitata
@@ -29,94 +28,130 @@ $combo_gatto = new Antiseptics("Frontline Combo Spot", "Cat", "FRONTLINE", "Fron
 
 $products = [$felix_ghiottonerie->getFullInfoProduct(), $combo_gatto->getFullInfoProduct()];
 
-try {
-    $combo_gatto->setPrice(true, "ciao");
-  } catch (Exception $e) {
-    echo $e->getMessage();
-  }
+require __DIR__ . '/Layout/head.php';
 
+/* Trustpilot FAKE stars db*/
+
+$full_star = 5;
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bool Planet</title>
-    <!-- Bootrap v5.1 -->
-    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
-    <!-- Bootstrap Js Bundle -->
-    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
-</head>
 
 <body>
 
-    <div class="containers p-5">
-        <div class="m-auto w-25">
-            <form action="index.php" method="get">
-                <div class="mb-3">
-                  <label for="email" class="form-label"></label>
-                  <input type="email"
-                    class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="Email">
-                  <small id="helpId" class="form-text text-muted"></small>
-                </div>
-                <div class="mb-3">
-                  <label for="password" class="form-label"></label>
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-                </div>
-                <label for="login" class="form-label"></label>
-                  <input type="submit" name="login" value="true"
-                     id="" aria-describedby="helpId" placeholder="Login">
-                  <small id="helpId" class="form-text text-muted"></small>
-                </div>
-            </form>
-        </div>
+
+  <header>
+    <div class="spedition_banner text-center py-2">
+
+      <h6 class="fw-bold">🚚 Consegna Rapida e Gratuita con ordini da soli 29€!</h6>
+
+    </div>
+    <div class="trustpilot_banner text-center py-1">
+
+      <h6>
+        <?php for ($i = 0; $i < $full_star; $i++) { ?><i class="bi bi-star-fill"></i><?php } ?>
+        <strong>Eccezionale 420</strong> recensioni su <strong><a href="#">Trustpilot</a></strong>
+      </h6>
+
     </div>
 
-    <div class="container mt-5">
-        <div class="row">
-            <?php foreach ($products as $product) { ?>
-                
-            <div class="col">
 
-            <div class="product-card">
-                <div class="product-img">
-                    <img src='https://picsum.photos/400/300' alt='default img'>
-                    
-                </div>
-                <div class="details">
-                    <h5>
-                        <?= $product['name']?>
-                    </h5>
-                    <p>
-                     Category:<?= ' '. $product['animal']?>
-                    </p>
-                    <p>
-                     Brand:<?= ' '. $product['brand']?>
-                    </p>
-                    <p>
-                     <?= $product['description']?>
-                    </p>
-                    <p>
-                     <?= $product['price']?>
-                    </p>
-                    <p>
-                     <?= $product['meat']?>
-                    </p>
-
-
-
-                </div>
+    <div class="nav-site">
+      <div class="container m-auto">
+        <div class="row py-3">
+          <div class="col-4">
+            <div class="logo d-flex align-items-center">
+              <div class="logo_img">
+                <img src='./assets/img/logo-dog-paw.png' alt='logo dog paw'>
+              </div>
+              <h1 class="fs-4 mb-0">Bool Planet</h1>
             </div>
-
-            
-
-            </div>
-            <?php } ?>
+          </div>
+          <div class="col-8 d-flex align-items-center ">
+            <ul class="nav justify-content-end flex-nowrap">
+              <li class="nav-item">
+                <a class="nav-link active" href="#"><i class="bi bi-house-door me-1"></i>Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-solid fa-dog me-1"></i>Cane</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-solid fa-cat me-1"></i>Gatto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-solid fa-fish me-1"></i>Pesce e Rettile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-solid fa-dove me-1"></i>Uccelli</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-solid fa-circle-plus me-1"></i>Novità</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.php"><i class="fa-solid fa-percent me-1"></i>Offerte</a>
+              </li>
+            </ul>
+          </div>
         </div>
+
+      </div>
+      <!-- /.nav-site -->
     </div>
+
+    <div class="general_info">
+      <div class="container">
+        <div class="row px-4 py-1 text-center">
+          <div class="col-3"> Alta competenza di settore</div>
+          <div class="col-3"> MIglior Qualità/Prezzo</div>
+          <div class="col-3"> Consegna in 24/48h</div>
+          <div class="col-3"> Spedizione gratuita da 49 €</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container mt-5">
+    <div class="row">
+      <?php foreach ($products as $product) { ?>
+
+        <div class="col">
+
+          <div class="product-card">
+            <div class="product-img">
+              <img src='https://picsum.photos/400/300' alt='default img'>
+
+            </div>
+            <div class="details">
+              <h5>
+                <?= $product['name'] ?>
+              </h5>
+              <p>
+                Category:<?= ' ' . $product['animal'] ?>
+              </p>
+              <p>
+                Brand:<?= ' ' . $product['brand'] ?>
+              </p>
+              <p>
+                <?= $product['description'] ?>
+              </p>
+              <p>
+                <?= $product['price'] ?>
+              </p>
+              <p>
+                <?= $product['meat'] ?>
+              </p>
+
+
+
+            </div>
+          </div>
+
+
+
+        </div>
+      <?php } ?>
+    </div>
+  </div>
 
 
 </body>

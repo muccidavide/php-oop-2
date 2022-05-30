@@ -5,62 +5,77 @@
         use AnimalAge;
 
         /* set aviability for stagional Antiseptics */
-        public $aviability = false;
+        public $aviability;
         public $is_natural;
         public $dosage;
-        
 
-        function __construct(String $name, String $animal, String $brand, String $descr, /* Float */ $price, $has_discount, Bool $aviability, Bool $is_natural, String $dosage, $animalAge) {
+        function __construct(String $name, String $animal, String $brand, String $descr, /* Float */ $price, $has_discount, Bool $is_natural, String $dosage, $animalAge) {
             parent::__construct( $name,  $animal,  $brand,  $descr,  $price,  $has_discount);
 
             $this->is_natural = $is_natural;
             $this->dosage = $dosage;
-            $this->aviability = $aviability;
             $this->animalAge = $animalAge;
+            $this->aviability = $this->stagionalAviability();;
 
         }
 
-        private function getName()
+        function stagionalAviability(){
+
+            $monthToday = getdate()['mon'];
+            $startAviability = 5;
+            $endAviability = 9;
+
+            if($monthToday >= $startAviability && $monthToday <= $endAviability){
+                return $this->aviability = true;
+            }
+   
+
+
+        }
+
+        /* Getters */
+
+        public function getName()
         {
             return $this->name;
         }
     
-        private function getAnimal()
+        public function getAnimal()
         {
             return $this->animal;
         }
     
-        private function getBrand()
+        public function getBrand()
         {
             return $this->brand;
         }
     
-        private function getDescr()
+        public function getDescr()
         {
             return $this->descr;
         }
     
-        private function getHasDiscount()
+        public function getHasDiscount()
         {
             return $this->has_discount;
         }
     
-        private function getDiscount()
+        public function getDiscount()
         {
             return $this->discount;
         }
 
-        private function getAviability()
+        public function getAviability()
         {
             return $this->aviability;
         }
 
-        private function getIsNatural()
+        public function getIsNatural()
         {
             return $this->is_natural;
         }
 
-        private function getDosage()
+        public function getDosage()
         {
             return $this->dosage;
         }

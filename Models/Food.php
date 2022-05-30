@@ -17,42 +17,44 @@
 
         }
 
-        private function getName()
+        /* Getters */
+
+        public function getName()
         {
             return $this->name;
         }
     
-        private function getAnimal()
+        public function getAnimal()
         {
             return $this->animal;
         }
     
-        private function getBrand()
+        public function getBrand()
         {
             return $this->brand;
         }
     
-        private function getDescr()
+        public function getDescr()
         {
             return $this->descr;
         }
     
-        private function getHasDiscount()
+        public function getHasDiscount()
         {
             return $this->has_discount;
         }
     
-        private function getDiscount()
+        public function getDiscount()
         {
             return $this->discount;
         }
 
-        private function getWeight()
+        public function getWeight()
         {
             return $this->weight;
         }
 
-        private function getMeat()
+        public function getMeat()
         {
             return $this->meat;
         }
